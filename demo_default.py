@@ -12,7 +12,7 @@ sleep(sleep_time)
 
 print("listening")
 pixel_ring.listen()
-sleep(sleep_time))
+sleep(sleep_time)
 
 print("thinking")
 pixel_ring.think()
