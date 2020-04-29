@@ -14,7 +14,7 @@
                         "type": "select",
                         "label": "Theme",
                         "options": "Amazon Echo|echo;Google Home|google;Custom Blue Theme|1",
-                        "value": "echo"
+                        "value": "1"
                     }
                 ]
             }
