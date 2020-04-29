@@ -1,3 +1,24 @@
 {
-    "name": "Tallking Indicator - ReSpeaker 4 Mic Hat"
+    "name": "Tallking Indicator - ReSpeaker 4 Mic Hat",
+    "skillMetadata": {
+        "sections": [
+            {
+                "name": "Configuration",
+                "fields": [
+                    {
+                        "type": "label",
+                        "label": "Pick a color theme for the lights"
+                    },
+                    {
+                        "name": "theme",
+                        "type": "select",
+                        "label": "Theme",
+                        "options": "Amazon Echo|echo;Google Home|google;Custom Blue Theme|1",
+                        "value": "echo"
+                    }
+                ]
+            }
+        ]
+    }
+
 }
