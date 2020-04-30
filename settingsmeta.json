@@ -1,5 +1,4 @@
 {
-    "name": "LED Ring - ReSpeaker",
     "skillMetadata": {
         "sections": [
             {
@@ -13,8 +12,8 @@
                         "name": "theme",
                         "type": "select",
                         "label": "Theme",
-                        "options": "Amazon Echo|echo;Google Home|google;Custom Blue Theme|1",
-                        "value": "1"
+                        "options": "Amazon Echo|echo;Google Home|google;Custom Blue Theme|mytheme1",
+                        "value": "mytheme1"
                     }
                 ]
             }
