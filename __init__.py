@@ -59,13 +59,10 @@ class LEDRingRespeaker(MycroftSkill):
 				self.handler_listener_speak)
 		self.add_event('recognizer_loop:audio_output_end',
 				self.handle_listener_off)
-		self.power.on()
 		self.pixel_ring.off()
 
 	def disable(self):
 		self.log.info("Pixel Ring: Disabling")
-		self.pixel_ring.off()
-		self.power.off()
 		self.remove_event('recognizer_loop:wakeup')
 		self.remove_event('recognizer_loop:record_end')
 		self.remove_event('recognizer_loop:audio_output_start')
@@ -79,9 +76,9 @@ class LEDRingRespeaker(MycroftSkill):
 		self.power.off()
 
 	def handle_listener_wakeup(self, message):
-		self.log.info("Pixel Ring: Wakeup")
 		pattern = self.settings.get("theme", "mytheme1")
 		self.pixel_ring.change_pattern(pattern)
+		self.log.info(f"Pixel Ring: Wake Up - Pattern Input: {pattern} - Pattern: {self.pixel_ring.pattern}")
 		self.pixel_ring.listen()
 
 	def handle_listener_off(self, message):
@@ -89,15 +86,15 @@ class LEDRingRespeaker(MycroftSkill):
 		self.pixel_ring.off()
 
 	def handle_listener_think(self, message):
-		self.log.info("Pixel Ring: Think")
 		pattern = self.settings.get("theme", "mytheme1")
 		self.pixel_ring.change_pattern(pattern)
+		self.log.info(f"Pixel Ring: Think - Pattern Input: {pattern} - Pattern: {self.pixel_ring.pattern}")
 		self.pixel_ring.think()
 
 	def handler_listener_speak(self, message):
-		self.log.info("Pixel Ring: Speak")
 		pattern = self.settings.get("theme", "mytheme1")
 		self.pixel_ring.change_pattern(pattern)
+		self.log.info(f"Pixel Ring: Speak - Pattern Input: {pattern} - Pattern: {self.pixel_ring.pattern}")
 		self.pixel_ring.speak()
 
 	@intent_handler(IntentBuilder("").require("EnablePixelRing"))
