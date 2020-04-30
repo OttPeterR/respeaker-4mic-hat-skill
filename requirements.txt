@@ -1,4 +1,5 @@
 spidev
 pyusb
 gpiozero
+wheel
 git+https://github.com/OttPeterR/pixel_ring.git
