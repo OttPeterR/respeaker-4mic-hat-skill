@@ -31,7 +31,7 @@ class ReSpeaker_4mic_hat(MycroftSkill):
         self.power = LED(5)
         self.power.on()
         pixel_ring.set_brightness(10)
-        pattern = self.settings.get("theme", "mytheme1")
+        pattern = "1"#self.settings.get("theme", "mytheme1")
         pixel_ring.change_pattern(pattern)
         self.log.info(f"Pixel Ring Pattern - Input: {pattern} - Actual: {pixel_ring.pattern}")
         pixel_ring.wakeup()
