@@ -26,7 +26,7 @@ from gpiozero import LED
 class LEDRingRespeaker(MycroftSkill):
 
 	def __init__(self):
-		super(ReSpeaker_4mic_hat, self).__init__(name="ReSpeaker_4mic_hat")
+		super(LEDRingRespeaker, self).__init__(name="LED Ring - Respeaker")
 		self.pixel_ring = pixel_ring
 
 	def initialize(self):
