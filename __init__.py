@@ -27,12 +27,12 @@ class LEDRingRespeaker(MycroftSkill):
 
 	def __init__(self):
 		super(LEDRingRespeaker, self).__init__(name="LED Ring - Respeaker")
-		self.pixel_ring = pixel_ring
 
 	def initialize(self):
 		self.log.info("Pixel Ring: Initializing")
 		self.power = LED(5)
 		self.power.on()
+		self.pixel_ring = pixel_ring
 		self.pixel_ring.set_brightness(10)
 		pattern = self.settings.get("theme", "mytheme1")
 		self.log.info(f"Input pattern: {pattern}")
