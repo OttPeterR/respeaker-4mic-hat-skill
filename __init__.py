@@ -23,21 +23,22 @@ from mycroft import intent_file_handler
 from pixel_ring import pixel_ring
 from gpiozero import LED
 
-class ReSpeaker_4mic_hat(MycroftSkill):
+class LEDRingRespeaker(MycroftSkill):
 
 	def __init__(self):
 		super(ReSpeaker_4mic_hat, self).__init__(name="ReSpeaker_4mic_hat")
+		self.pixel_ring = pixel_ring
 
 	def initialize(self):
 		self.log.info("Pixel Ring: Initializing")
 		self.power = LED(5)
 		self.power.on()
-		pixel_ring.set_brightness(10)
+		self.pixel_ring.set_brightness(10)
 		pattern = self.settings.get("theme", "mytheme1")
 		self.log.info(f"Input pattern: {pattern}")
 		pixel_ring.change_pattern(pattern)
-		self.log.info(f"Set Pattern: {pixel_ring.pattern}")
-		pixel_ring.wakeup()
+		self.log.info(f"Set Pattern: {self.pixel_ring.pattern}")
+		self.pixel_ring.wakeup()
 		self.enable()
 
 	def enable(self):
@@ -71,24 +72,24 @@ class ReSpeaker_4mic_hat(MycroftSkill):
 
 	def shutdown(self):
 		self.log.info("Pixel Ring: Shutdown")
-		pixel_ring.off()
+		self.pixel_ring.off()
 		self.power.off()
 
 	def handle_listener_wakeup(self, message):
 		self.log.info("Pixel Ring: Wakeup")
-		pixel_ring.listen()
+		self.pixel_ring.listen()
 
 	def handle_listener_off(self, message):
 		self.log.info("Pixel Ring: Off")
-		pixel_ring.off()
+		self.pixel_ring.off()
 
 	def handle_listener_think(self, message):
 		self.log.info("Pixel Ring: Think")
-		pixel_ring.think()
+		self.pixel_ring.think()
 
 	def handler_listener_speak(self, message):
 		self.log.info("Pixel Ring: Speak")
-		pixel_ring.speak()
+		self.pixel_ring.speak()
 
 	@intent_handler(IntentBuilder("").require("EnablePixelRing"))
 	def handle_enable_pixel_ring_intent(self, message):
@@ -101,4 +102,4 @@ class ReSpeaker_4mic_hat(MycroftSkill):
 		self.speak_dialog("DisablePixelRing")
 
 def create_skill():
-	return ReSpeaker_4mic_hat()
+	return LEDRingRespeaker()
