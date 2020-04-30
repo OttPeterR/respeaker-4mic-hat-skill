@@ -57,11 +57,13 @@ class LEDRingRespeaker(MycroftSkill):
 				self.handler_listener_speak)
 		self.add_event('recognizer_loop:audio_output_end',
 				self.handle_listener_off)
-
+		self.power.on()
 		pixel_ring.off()
 
 	def disable(self):
 		self.log.info("Pixel Ring: Disabling")
+		pixel_ring.off()
+		self.power.off()
 		self.remove_event('recognizer_loop:wakeup')
 		self.remove_event('recognizer_loop:record_end')
 		self.remove_event('recognizer_loop:audio_output_start')
