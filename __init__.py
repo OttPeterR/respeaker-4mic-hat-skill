@@ -33,6 +33,7 @@ class ReSpeaker_4mic_hat(MycroftSkill):
         pixel_ring.set_brightness(10)
         pattern = self.settings.get("theme", "mytheme1")
         pixel_ring.change_pattern(pattern)
+        self.log.info(f"Pixel Ring Pattern - Input: {pattern} - Current: {pixel_ring.pattern}")
         pixel_ring.wakeup()
         self.enable()
 
@@ -72,18 +73,22 @@ class ReSpeaker_4mic_hat(MycroftSkill):
 
     def handle_listener_wakeup(self, message):
         self.log.info("Pixel Ring: Wakeup")
+        self.log.info(f"Pixel Ring Pattern - Input: {pattern} - Current: {pixel_ring.pattern}")
         pixel_ring.listen()
 
     def handle_listener_off(self, message):
         self.log.info("Pixel Ring: Off")
+        self.log.info(f"Pixel Ring Pattern - Input: {pattern} - Current: {pixel_ring.pattern}")
         pixel_ring.off()
 
     def handle_listener_think(self, message):
         self.log.info("Pixel Ring: Think")
+        self.log.info(f"Pixel Ring Pattern - Input: {pattern} - Current: {pixel_ring.pattern}")
         pixel_ring.think()
 
     def handler_listener_speak(self, message):
         self.log.info("Pixel Ring: Speak")
+        self.log.info(f"Pixel Ring Pattern - Input: {pattern} - Current: {pixel_ring.pattern}")
         pixel_ring.speak()
 
     @intent_handler(IntentBuilder("").require("EnablePixelRing"))
