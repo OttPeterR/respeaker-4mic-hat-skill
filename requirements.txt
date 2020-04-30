@@ -2,4 +2,4 @@ spidev
 pyusb
 gpiozero
 wheel
-git+https://github.com/respeaker/pixel_ring.git
+git+https://github.com/OttPeterR/pixel_ring.git
