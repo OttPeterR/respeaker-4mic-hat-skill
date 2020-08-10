@@ -4,6 +4,10 @@ Use the Respeaker 4-Mic Array Hat with Mycroft A.I.
 ## Description
 This skills supports the led pixel ring of seeedstudio ReSpeaker 4-Mic HAT.
 
+## Install
+From your mycroft device, run: `mycroft-msm install  https://github.com/OttPeterR/respeaker-4mic-hat-skill`
+
+
 ## Examples
  - "Enable pixel ring"
  - "Disable pixel ring"
